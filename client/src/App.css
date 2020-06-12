@@ -1,9 +1,22 @@
+:root{
+  --blue: #1673FF;
+}
 *{
+  padding: 0;
+  margin: 0;
+}
+.background{
+  position: fixed;
+  background-color: var(--blue);
   height: 100%;
   width: 100%;
 }
-.background{
-  background-color: #1673FF;
-  height: 100%;
-  width: 100%;
+.blackFont{
+  color: black;
+}
+.whiteFont{
+  color: white;
+}
+.blueFont{
+  color: var(--blue);
 }
