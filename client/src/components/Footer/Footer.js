@@ -10,21 +10,23 @@ const Footer =({
     return (
         <footer className = 'toes'>
             <Router className = "siteMap">
-                <Link>Home</Link>
-                <Link>About</Link>
+                <Link to = '/'>Home</Link>
+                <Link to = '/about'>About</Link>
             </Router>
             <Router className = "siteMap">
-                <Link>F.A.Q</Link>
-                <Link>Privacy Policy</Link>
+                <Link to = '/faq'>F.A.Q</Link>
+                <Link to = '/privacy'>Privacy Policy</Link>
             </Router>
-            <Router className = "social">
-                <Link>
+            <div className = "social">
+                <a 
+                href = 'https://github.com/wadboy70/spotifyplaylistgenerator'
+                target = '_blank'>
                     <img src = {github}/>                    
-                </Link>
-                <Link>
+                </a>
+                <a href = 'mailto:s.oluwaleimu@gmail.com'>
                     <img src = {email}/>
-                </Link>
-            </Router>
+                </a>
+            </div>
         </footer>
     );
 }

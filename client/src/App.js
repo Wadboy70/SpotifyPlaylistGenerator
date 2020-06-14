@@ -1,16 +1,24 @@
 import React from 'react';
-import Stage from './components/Stage/Stage';
+import {BrowserRouter as Router, Switch, Route, withRouter} from 'react-router-dom';
+import Home from './Pages/Home';
 import Footer from './components/Footer/Footer';
 import './App.css';
 import './colors.css';
 
 function App() {
   return (
-    <div className = 'background'>
-      <Stage/>
+    <Router>
+      <Switch>
+        <Route exact path = "/" component = {withRouter(Home)}/>
+        <Route path = "*" component = {withRouter(notFound)}/>
+      </Switch>
       <Footer/>
-    </div>
+    </Router>
   );
 }
-
+const notFound = () =>{
+  return(
+    <span>Page not found</span>
+  )
+}
 export default App;

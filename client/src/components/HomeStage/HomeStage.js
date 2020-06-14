@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from '../Title/Title';
 import LoginButton from '../LoginButton/LoginButton';
-import './Stage.css';
+import './HomeStage.css';
 import spotify from '../../assets/spotify.svg';
 
 const Stage = () => {

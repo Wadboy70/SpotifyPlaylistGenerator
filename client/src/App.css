@@ -3,9 +3,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
+  font-family: 'Montserrat', sans-serif;
 }
-.background{
+.homeBackground{
   position: fixed;
   background-color: var(--blue);
   height: 100%;
