@@ -1,0 +1,19 @@
+:root{
+    --blue: #1673FF;
+    --lightBlue: #2B7FFF;
+}
+.blackFont{
+color: black;
+}
+.whiteFont{
+color: white;
+}
+.blueFont{
+color: var(--blue);
+}
+.blue{
+    background-color: var(--blue);
+}
+.lightBlue{
+    background-color: var(--lightBlue);
+}

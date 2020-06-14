@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Title.css';
+import './Title.css';
 // import '../../App.css';
 
 const Title = ({
@@ -10,13 +10,13 @@ const Title = ({
     return(
         <div className = "title">
             { 
-                (type == "title") &&
+                (type === "title") &&
                 <h1 className = {color}>
                     {text}
                 </h1>
             }
             { 
-                (type == "subtitle") &&
+                (type === "subtitle") &&
                 <h2 className = {color}>
                     {text}
                 </h2>

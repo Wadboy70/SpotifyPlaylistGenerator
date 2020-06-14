@@ -1,6 +1,8 @@
 import React from 'react';
 import Title from '../Title/Title';
+import LoginButton from '../LoginButton/LoginButton';
 import './Stage.css';
+import spotify from '../../assets/spotify.svg';
 
 const Stage = () => {
     return(
@@ -16,6 +18,13 @@ const Stage = () => {
                     type = "subtitle"
                 />
             </div>
+            <LoginButton
+                text = 'Log In to Spotify'
+                img = {spotify}
+                alt = "spotify logo"
+                color = 'lightBlue'
+                hoverColor = 'white'
+            />
         </div>
     );
 }
