@@ -1,0 +1,23 @@
+
+.btn > span{
+    font-size: 1.8em;
+    line-height: 2em;
+    vertical-align: middle;
+    text-align: center; 
+    padding: .5rem;
+    height: 100%;
+}
+.btn > span > img{
+    max-width: 4em;
+}
+.btn{
+    display: inline-flex;
+    width: 14rem;
+    align-items: center;
+}
+.imgSpan{
+    width: 40%;
+}
+.textSpan{
+    width: 60%;
+}
