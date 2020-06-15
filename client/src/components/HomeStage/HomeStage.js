@@ -11,6 +11,7 @@ const Stage = () => {
                 <Title
                     text = "Playlist Generator"
                     color = "whiteFont"
+                    link = "/"
                 />
                 <Title
                     text = "Yada Yada"

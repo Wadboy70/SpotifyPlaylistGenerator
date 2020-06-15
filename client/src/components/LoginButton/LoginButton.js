@@ -6,10 +6,14 @@ const LoginButton = ({
     text = 'Button',
     img = '',
     alt = '',
-    color = 'white'
+    color = 'white',
+    op = ()=>{}
 }) =>{
     return(
-        <button className = {`btn ${color}`}>
+        <button 
+        className = {`btn ${color}`}
+        onclick = {op}
+        >
             { img !== '' &&
               <span className = 'imgSpan'>
                     <img 
