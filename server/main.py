@@ -1,6 +1,7 @@
 import sys
 import spotipy
 import spotipy.util as util
+import spotipy.oauth2 as oauth
 import datetime
 
 
@@ -18,7 +19,7 @@ username = '12186297054'
 #creating client
 
 #to add multiple scopes just include a space between them
-scope = 'user-library-read playlist-modify-private playlist-read-private'
+scope = 'user-library-read playlist-modify-private playlist-read-private user-top-read'
 
 #this token is where we ask the user to authorize our use of their data
 token = util.prompt_for_user_token(username, 
@@ -72,14 +73,18 @@ if token:
     #getting user's top tracks for the last four weeks
     currUser = sp.current_user()
     #print(currUser)
-    #tracks = sp.current_user_top_tracks(limit=20, offset=0, time_range='medium_term')
+    tracks = sp.current_user_top_tracks(limit=20, offset=0, time_range='short_term')
+    topURI = list()
+    for each in tracks['items']:
+        print(each['name'])
+        topURI.append(each['uri'])
 
     #creating a playlist with the month and the date as the name
     today = datetime.datetime.now()
     name = today.strftime("%B") + " " + today.strftime("%Y") + " " + today.strftime("%I") + " " + today.strftime("%M") + " " + today.strftime("%S")
     pl = sp.user_playlist_create(username, name, public=False, description="")
     
-    #this code block is checking if the playlist just created actually exists
+    # #this code block is checking if the playlist just created actually exists
     playlists = sp.user_playlists(username)
     for playlist in playlists['items']:
         if playlist['owner']['id'] == username:
@@ -92,7 +97,7 @@ if token:
     except:
         print("Playlist was not created.")
     
-    #add = sp.user_playlist_add_tracks(username, playid, tracks, position=None)
+    add = sp.user_playlist_add_tracks(username, playid, topURI, position=None)
 
 
 else:
