@@ -19,7 +19,7 @@ username = '12186297054'
 #creating client
 
 #to add multiple scopes just include a space between them
-scope = 'user-library-read playlist-modify-private playlist-read-private user-top-read'
+scope = 'user-library-read playlist-modify-private playlist-read-private user-top-read user-read-playback-state'
 
 #this token is where we ask the user to authorize our use of their data
 token = util.prompt_for_user_token(username, 
@@ -40,39 +40,11 @@ sp = spotipy.Spotify(auth=token)
 # start dividing data acquisition into tasks like creating playlist, finding last played songs... etc
 
 
-#all this was in the documentation for spotipy!
-#i am using this to test how data works and what not
-# def show_tracks(tracks):
-#     for i, item in enumerate(tracks['items']):
-#         track = item['track']
-#         print("   %d %32.32s %s" % (i, track['artists'][0]['name'],
-#             track['name']))
-
-
-# if token:
-#     playlists = sp.user_playlists(username)
-#     for playlist in playlists['items']:
-#         if playlist['owner']['id'] == username:
-#             print()
-#             print(playlist['name'])
-#             print ('  total tracks', playlist['tracks']['total'])
-#             results = sp.playlist(playlist['id'],
-#                 fields="tracks,next")
-#             tracks = results['tracks']
-#             show_tracks(tracks)
-#             while tracks['next']:
-#                 tracks = sp.next(tracks)
-#                 show_tracks(tracks)
-# else:
-#     print("Can't get token for", username)
-
 if token:
     user = sp.user(username)
     print(user['display_name'])
 
-    #getting user's top tracks for the last four weeks
-    currUser = sp.current_user()
-    #print(currUser)
+    #getting the current user's top tracks from the last four weeks. finds the uris for each of the tracks and creates a list.
     tracks = sp.current_user_top_tracks(limit=20, offset=0, time_range='short_term')
     topURI = list()
     for each in tracks['items']:
@@ -81,6 +53,7 @@ if token:
 
     #creating a playlist with the month and the date as the name
     today = datetime.datetime.now()
+    #name needs to be changed from hour minute second to just month and year
     name = today.strftime("%B") + " " + today.strftime("%Y") + " " + today.strftime("%I") + " " + today.strftime("%M") + " " + today.strftime("%S")
     pl = sp.user_playlist_create(username, name, public=False, description="")
     
