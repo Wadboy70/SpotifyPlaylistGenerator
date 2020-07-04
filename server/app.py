@@ -1,9 +1,18 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, make_response
+import main
 
-app = Flask("__name__")
+app = Flask(__name__)
 
-@app.route("/")
-def hello():
-    return "Hello World"
-if __name__=='__main__':
-    app.run(debug=True)
+
+# @app.route("/")
+# def home():
+#     return "Hello World!"
+
+# @app.route("/")
+# def authent():
+#     """User Authentification."""
+#     token = main.authentication(main.username, main.scope, main.CLIENT_ID, main.CLIENT_SECRET)
+#     return token
+
+# if __name__=='__main__':
+#     app.run(debug=True)
