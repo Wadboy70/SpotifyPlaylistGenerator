@@ -1,0 +1,10 @@
+.stage{
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+.stage > div, .stage > button {
+    margin: 10%;
+}

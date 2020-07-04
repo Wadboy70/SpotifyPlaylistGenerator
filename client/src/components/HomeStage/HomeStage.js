@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Title from '../Title/Title';
 import LoginButton from '../LoginButton/LoginButton';
 import './HomeStage.css';
 import spotify from '../../assets/spotify.svg';
+import {TweenMax} from 'gsap';
 
 const Stage = () => {
+    let title = useRef(null);
+    useEffect(()=>{
+        TweenMax.from(title, {y:'5%',duration:.5,opacity:0})
+    },[]);
     return(
-        <div className = "stage">
+        <div className = "stage" ref = {e => title = e}>
             <div className = "siteTitle">
                 <Title
                     text = "Playlist Generator"

@@ -1,4 +1,5 @@
 import React from 'react';
+import AnimatedBlock from '../AnimatedBlock/AnimatedBlock';
 import '../../colors.css';
 import  './AnimatedBackground.css';
 
@@ -8,8 +9,11 @@ const AnimatedBackground = ({
     secondaryColor = 'lightBlue'
 }) =>{
     return(
-        <div className = {color + ' background'}>
-            {children}
+        <div className = "lwahkfsdj">
+            <div className = {color + ' background'}>
+                    <AnimatedBlock/>
+            </div>
+                {children}
         </div>
     );
 }

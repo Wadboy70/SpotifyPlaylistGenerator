@@ -4,6 +4,7 @@ import '../../colors.css'
 
 const LoginButton = ({
     text = 'Button',
+    fontColor = 'whiteFont',
     img = '',
     alt = '',
     color = 'white',
@@ -12,7 +13,7 @@ const LoginButton = ({
     return(
         <button 
         className = {`btn ${color}`}
-        onclick = {op}
+        onClick = {op}
         >
             { img !== '' &&
               <span className = 'imgSpan'>
@@ -21,7 +22,7 @@ const LoginButton = ({
                     alt = {alt}/>
                 </span>
             }
-            <span className = 'textSpan'>
+            <span className = {`textSpan ${fontColor}`}>
                 {text}
             </span>
         </button>

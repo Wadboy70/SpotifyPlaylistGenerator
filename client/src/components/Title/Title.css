@@ -1,0 +1,10 @@
+.titleLink,.title > h1, .title > h2{
+    text-decoration: none;
+    text-align: center;
+}
+.title > h1{
+    font-size: calc(4vw + 4vh + 2vmin);
+}
+.title > h2{
+    font-size: calc(2vw + 2vh + 1vmin);
+}

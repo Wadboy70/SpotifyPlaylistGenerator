@@ -10,7 +10,7 @@ const Title = ({
     link = ""
 }) =>{
     return(
-        <Link to = {link}>
+        <Link to = {link} className = "titleLink">
             <div className = "title">
                 { 
                     (type === "title") &&

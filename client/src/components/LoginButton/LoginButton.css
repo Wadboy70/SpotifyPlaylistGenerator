@@ -8,16 +8,19 @@
     height: 100%;
 }
 .btn > span > img{
-    max-width: 4em;
+    width: 98%;
 }
 .btn{
     display: inline-flex;
     width: 14rem;
     align-items: center;
+    border: white 5px solid;
+    border-radius: 20px; 
 }
 .imgSpan{
     width: 40%;
 }
 .textSpan{
+    
     width: 60%;
 }
