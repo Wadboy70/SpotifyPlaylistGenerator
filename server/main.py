@@ -3,13 +3,17 @@ import spotipy
 import spotipy.util as util
 import spotipy.oauth2 as oauth
 import datetime
+import config
+
+secret = config.SECRET_KEY
+cid = config.CLIENT_ID
 
 def authentication(username, scope, CLIENT_ID, CLIENT_SECRET):
     token = util.prompt_for_user_token(username, 
                                     scope,
-                                    client_id=CLIENT_ID,
+                                    client_id=cid,
                                     client_secret=CLIENT_SECRET,
-                                    redirect_uri='http://localhost:8888/callback/')
+                                    redirect_uri='http://localhost:5000/callback/')
     if not token:
         print("yikes")
         return False    
@@ -17,20 +21,15 @@ def authentication(username, scope, CLIENT_ID, CLIENT_SECRET):
         print("success")
         return token
 
-#to run util.prompt_for_user_token it requires username, scope (what data you are trying to access), clientid, client secret, and redirect uri
-#client id and client secret need to be moved into .env later... currently just trying to get shit to work... sorry github
-#saw some people make a config or secrets file and put everything there... will have to try
-CLIENT_ID = '6b15c13959ad422e991f07d2fb1fc56d'
-CLIENT_SECRET = '2cc7758ff94e4341ba75e3c4c922b5bd'
-redirect = 'http://localhost:8888/callback/'
 
-#username needs to be changed
+
+#SEYI IF U ARE READING THIS COMMENT IT OUT AND CHANGE IT TO YOUR NAME
 username = '12186297054'
 
 #creating client
 
 #to add multiple scopes just include a space between them
-scope = 'user-library-read playlist-modify-private playlist-read-private user-top-read user-read-playback-state'
+scope = 'user-library-read playlist-modify-private playlist-read-private user-top-read user-read-playback-state streaming'
 
 #this token is where we ask the user to authorize our use of their data
 
@@ -39,7 +38,7 @@ def main():
 
 if __name__ == "__main__":
 
-    token = authentication(username, scope, CLIENT_ID, CLIENT_SECRET)
+    token = authentication(username, scope, cid, secret)
     #our main spotipy accessor
     sp = spotipy.Spotify(auth=token)
 
