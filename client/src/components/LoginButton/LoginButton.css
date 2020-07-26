@@ -17,6 +17,9 @@
     border: white 5px solid;
     border-radius: 20px; 
 }
+.btn :hover{
+    cursor: pointer;
+}
 .imgSpan{
     width: 40%;
 }
