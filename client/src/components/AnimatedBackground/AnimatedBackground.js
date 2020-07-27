@@ -4,6 +4,7 @@ import '../../colors.css';
 import  './AnimatedBackground.css';
 
 const AnimatedBackground = ({
+    children,
     color = 'blue',
     secondaryColor = 'lightBlue'
     
@@ -23,24 +24,27 @@ const AnimatedBackground = ({
         });
     });
     return(
-        <div className = {`${color} background`}>
-            <div className = "container">
-                {
-                    //mapping info from block location array to the inner and outer block container
-                    blockLocations.map((block, index)=>(
-                        <div ref = {e => block.ref = e}
-                            key = {index}
-                            className = 'blockContainer'
-                        >
-                            <div
-                            ref = {e => block.innerRef = e}
-                            className = {`${secondaryColor}  backingBlock`}
-                            />
-                        </div>
-                    ))
-                }
+        <>
+            <div className = {`${color} background`}>
+                <div className = "container">
+                    {
+                        //mapping info from block location array to the inner and outer block container
+                        blockLocations.map((block, index)=>(
+                            <div ref = {e => block.ref = e}
+                                key = {index}
+                                className = 'blockContainer'
+                            >
+                                <div
+                                ref = {e => block.innerRef = e}
+                                className = {`${secondaryColor}  backingBlock`}
+                                />
+                            </div>
+                        ))
+                    }
+                </div>
+            {children}
             </div>
-        </div>
+        </>
     );
 }
 

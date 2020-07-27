@@ -1,6 +1,8 @@
 :root{
     --blue: #1673FF;
     --lightBlue: #2B7FFF;
+    --pink: #FF8888;
+    --lightPink: #FFA3A3;
 }
 .blackFont{
 color: black;
@@ -16,4 +18,11 @@ color: var(--blue);
 }
 .lightBlue{
     background-color: var(--lightBlue);
+}
+
+.pink{
+    background-color: var(--pink);
+}
+.lightPink{
+    background-color: var(--lightPink);
 }

@@ -19,7 +19,7 @@ function App() {
           render = {() => user ? (<Redirect to = '/dashboard'/>) : (<Home/>)}/>
         <Route 
           exact path = '/dashboard' 
-          render = {() => user ? (<Dashboard user = {user}/>) : (<Redirect to = '/'/>)}/>
+          render = {() => (<Dashboard user = {user}/>) }/>
         <Route path = "*">
           <span>Page not found</span>
         </Route>
