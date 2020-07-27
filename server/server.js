@@ -15,4 +15,4 @@ app.get('/json', (req,res) => {
 });
 
 //The following line starts the server
-app.listen(process.env.PORT || 5000, () => console.log(`App now listening on port 5000`));
+app.listen(process.env.PORT || 5000, () => console.log(`App now listening on port ${process.env.PORT}`));
