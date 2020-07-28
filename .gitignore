@@ -20,6 +20,9 @@ client/build
 .env.production.local
 .env
 
+# server/ config stuff
+server/config.js
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
