@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import {TweenMax} from 'gsap';
-import UserContext from '../../context/userContext.js';
-import promptLogin from '../../spotify/spotify.functions.js';
+import { promptLogin } from '../../spotify/spotify.functions.js';
 
 import Title from '../Title/Title';
 import LoginButton from '../LoginButton/LoginButton';
@@ -18,32 +17,28 @@ const HomeStage = () => {
 
     return(
         //now i need to figure out how to get the access token and refresh token to the backend
-        <UserContext.Consumer>
-        { ({user, setUser}) =>
-            <div className = "stage" ref = {e => title = e}>
-                <div className = "siteTitle">
-                    <Title
-                        text = "Playlist Generator"
-                        color = "whiteFont"
-                        link = "/"
-                    />
-                    <Title
-                        text = "Yada Yada"
-                        color = "whiteFont"
-                        type = "subtitle"
-                    />
-                </div>
-                <LoginButton
-                    text = 'Log In to Spotify'
-                    img = {spotify}
-                    alt = "spotify logo"
-                    color = 'lightBlue'
-                    hoverColor = 'white'
-                    op = {promptLogin}
+        <div className = "stage" ref = {e => title = e}>
+            <div className = "siteTitle">
+                <Title
+                    text = "Playlist Generator"
+                    color = "whiteFont"
+                    link = "/"
+                />
+                <Title
+                    text = "Yada Yada"
+                    color = "whiteFont"
+                    type = "subtitle"
                 />
             </div>
-        }
-        </UserContext.Consumer>
+            <LoginButton
+                text = 'Log In to Spotify'
+                img = {spotify}
+                alt = "spotify logo"
+                color = 'lightBlue'
+                hoverColor = 'white'
+                op = {promptLogin}
+            />
+        </div>
     );
 };
 
